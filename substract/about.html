@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>About us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            overflow-y: auto;
+            color: white;
+        }
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 110vh;
+            background: rgba(39, 39, 39, 0.4);
+            padding: 120px 20px 40px 20px;
+        }
+        .nav {
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            height: 100px;
+            line-height: 100px;
+            background: linear-gradient(rgba(39, 39, 39, 0.8), transparent);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+        .nav-logo p {
+            color: white;
+            font-size: 25px;
+            font-weight: 600;
+        }
+        .nav-menu ul {
+            display: flex;
+        }
+        .nav-menu ul li {
+            list-style-type: none;
+        }
+        .nav-menu ul li .link {
+            text-decoration: none;
+            font-weight: 500;
+            color: #fff;
+            padding-bottom: 15px;
+            margin: 0 25px;
+            transition: all 0.3s ease;
+        }
+        .link:hover, .active {
+            border-bottom: 2px solid #fff;
+            color: #4FACFE;
+        }
+        .content {
+            text-align: center;
+            color: white;
+            max-width: 1200px;
+        }
+        .hero-section {
+            position: relative;
+            padding: 60px 0;
+            margin-bottom: 60px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/api/placeholder/1200/400');
+            background-size: cover;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(79, 172, 254, 0.2), rgba(0,0,0,0.1));
+        }
+        .hero-section header {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            position: relative;
+        }
+        .content p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 0 auto 30px;
+            max-width: 800px;
+        }
+        .section-header {
+            font-size: 32px;
+            margin: 40px 0 20px;
+            color: #4FACFE;
+            font-weight: 600;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .value-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+        .value-card i {
+            font-size: 40px;
+            color: #4FACFE;
+            margin-bottom: 20px;
+        }
+        .value-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        .founder-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background: linear-gradient(45deg, rgba(79, 172, 254, 0.2), rgba(0,0,0,0.1));
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .founder-image {
+            flex: 0 0 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #4FACFE;
+        }
+        .founder-content {
+            flex: 1;
+            text-align: left;
+        }
+        .timeline {
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #4FACFE;
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+            position: relative;
+        }
+        .timeline-content {
+            width: 45%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            position: relative;
+        }
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background: #4FACFE;
+            border-radius: 50%;
+        }
+        .timeline-content.left::before {
+            right: -60px;
+        }
+        .timeline-content.right::before {
+            left: -60px;
+        }
+        .timeline-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #4FACFE;
+        }
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #4FACFE;
+            margin-bottom: 10px;
+        }
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            
+        }
+        .shape {
+            position: absolute;
+            background: linear-gradient(45deg, #4FACFE, #00f2fe);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>Substrack.</p>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="link">Home</a></li>
+                    <li><a href="dashboard.html" class="link">Dashboard</a></li>
+                    <li><a href="contact.html" class="link">Contact</a></li>
+                    <li><a href="about.html" class="link active">About</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="content">
+            <div class="hero-section">
+                <div class="floating-shapes">
+                    <div class="shape" style="width: 100px; height: 100px; top: 20%; left: 10%;"></div>
+                    <div class="shape" style="width: 150px; height: 150px; top: 60%; right: 15%;"></div>
+                    <div class="shape" style="width: 70px; height: 70px; top: 40%; left: 50%;"></div>
+                </div>
+                <header>About Us</header>
+                <p>Welcome to Substrack, your go-to platform for seamless subscription tracking and management. 
+                    Our mission is to simplify your life by providing a centralized dashboard where you can manage 
+                    all your subscriptions efficiently.</p>
+            </div>
+
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-number">1</div>
+                    <p>Active Users</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">None</div>
+                    <p>Savings Generated</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">0</div>
+                    <p>App Store Rating</p>
+                </div>
+            </div>
+
+            <div class="section-header">Our Values</div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class='bx bx-glasses'></i>
+                    <h3>Transparency</h3>
+                    <p>We believe in complete transparency in everything we do. From our pricing to our features, 
+                        what you see is what you get.</p>
+                </div>
+                <div class="value-card">
+                    <i class='bx bx-bulb'></i>
+                    <h3>Simplicity</h3>
+                    <p>Complex problems don't need complex solutions. We strive to make subscription management 
+                        as simple and intuitive as possible.</p>
+                </div>
+                <div class="value-card">
+                    <i class='bx bx-shield'></i>
+                    <h3>Security</h3>
+                    <p>Your financial information is sensitive. We employ bank-level security measures to ensure 
+                        your data is always protected.</p>
+                </div>
+            </div>
+
+            <div class="founder-section">
+                <div class="founder-image">
+                    <img src="./images/download.jpg" alt="Gayatri - Founder" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="founder-content">
+                    <div class="section-header" style="text-align: left; margin-top: 0;">Our Founder</div>
+                    <p>Gayatri, CEO and Founder of Substrack,is a sophmore CS student with a passion for building innovative solutions.
+                    Inspired by her boyfriends' struggles with managing subscriptions she came up with the idea to simplify the process 
+                    and make his life easier. </p>
+                    <p>Her vision for Substrack is to create a world where managing subscriptions is effortless and transparent.</p>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="section-header">Our Journey</div>
+                <div class="timeline-item">
+                    <div class="timeline-content left">
+                        <h3>Jan 2025 - The Beginning</h3>
+                        <p>Substrack started as a mini project as part of college curriculum</p>
+                    </div>
+                    <div style="flex: 0 0 50%;"></div>
+                </div>
+                <div class="timeline-item">
+                    <div style="flex: 0 0 50%;"></div>
+                    <div class="timeline-content right">
+                        <h3>March 2025 - Beta Launch</h3>
+                        <p>First version released to few peers</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content left">
+                        <h3>Mid 2025 - Official Launch</h3>
+                        <p>Substrack launches publicly with core features</p>
+                    </div>
+                    <div style="flex: 0 0 50%;"></div>
+                </div>
+                <div class="timeline-item">
+                    <div style="flex: 0 0 50%;"></div>
+                    <div class="timeline-content right">
+                        <h3>Late 2025 - Growing Community</h3>
+                        <p>Reached milestone of 100,000 active users</p>
+                    </div>
+                </div>
+            </div>
+
+            <p>Today, Substrack continues to grow and evolve, driven by our commitment to making subscription 
+                management easier for everyone. We're more than just a platform - we're a community of mindful 
+                consumers taking control of their digital subscriptions.</p>
+        </div>
+    </div>
+</body>
+</html>
