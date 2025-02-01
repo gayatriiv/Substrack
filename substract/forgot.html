@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Substrack - Password Reset</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Forgot Password Page -->
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>Substrack.</p>
+            </div>
+            <div class="nav-button">
+                <button class="btn white-btn" id="loginBtn">Sign In</button>
+                <button class="btn" id="registerBtn">Sign Up</button>
+            </div>
+        </nav>
+
+        <div class="form-box">
+            <!-- Forgot Password Container -->
+            <div class="login-container" id="forgot-password">
+                <div class="top">
+                    <span>Remember your password? <a href="#">Sign In</a></span>
+                    <header>Forgot Password</header>
+                </div>
+                <div class="input-box">
+                    <input type="email" class="input-field" placeholder="Enter your email">
+                    <i class='bx bx-envelope'></i>
+                </div>
+                <div class="input-box">
+                    <input type="submit" class="submit" value="Send Reset Link">
+                </div>
+                <br>
+                <div class="center-message">
+                    <div class="one">
+                        <label>We'll send you instructions to reset your password.</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reset Password Page -->
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>Substrack.</p>
+            </div>
+            <div class="nav-button">
+                <button class="btn white-btn" id="loginBtn">Sign In</button>
+                <button class="btn" id="registerBtn">Sign Up</button>
+            </div>
+        </nav>
+
+        <div class="form-box">
+            <!-- Reset Password Container -->
+            <div class="login-container" id="reset-password">
+                <div class="top">
+                    <span>Remember your password? <a href="#">Sign In</a></span>
+                    <header>Reset Password</header>
+                </div>
+                <div class="input-box">
+                    <input type="password" class="input-field" placeholder="New Password">
+                    <i class='bx bx-lock-alt'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" class="input-field" placeholder="Confirm New Password">
+                    <i class='bx bx-lock-alt'></i>
+                </div>
+                <div class="input-box">
+                    <input type="submit" class="submit" value="Reset Password">
+                </div>
+                <div class="two-col">
+                    <div class="one">
+                        <label>Make sure your new password is strong.</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+    /* POPPINS FONT */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+    *{  
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body{
+        background-color: black;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        overflow-x: hidden;
+    }
+
+    .wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 110vh;
+        background: rgba(39, 39, 39, 0.4);
+    }
+
+    .center-message {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    font-size: small;
+    margin-top: 10px;
+}
+    /* Your existing CSS remains the same */
+    </style>
+</body>
+</html>
